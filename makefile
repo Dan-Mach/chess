@@ -1,1 +1,2 @@
-gcc arora.c -o arora
+All:
+    gcc arora.c  init.c -o arora

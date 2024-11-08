@@ -1,6 +1,21 @@
 #ifndef DEFS_H
 #define DEFS_H
 
+#include <stdlib.h>
+
+#define DEBUG
+#ifndef DEBUG
+#define ASSERT(n)
+#else
+#define ASSERT(n) \
+if (! (n)) { \
+printf{"%s - Failed",#n }; \
+printf("On %s" __DATE__); \
+printf("At %s" __TIME__); \
+printf(" In File %s", _FILE_); \
+printf("At line %d", __LINE__); \
+exit(1);}
+#endif
 typedef unsigned long long U64;
 
 #define NAME "Arora 1.0"
@@ -39,7 +54,7 @@ typedef struct {
     U64 pawns[3];
 
     int KingSQ[2];
-    
+
     int side;
     int enPas;
     int fiftyMove;
@@ -58,12 +73,21 @@ typedef struct {
 
     S_UNDO history[MAXGAMEMOVES];
 
+    int pList[13][10];
+
 } S_BOARD;
 
+//  MACRO
+
+#define FR2SQ(f,r) ( (21 + (f)) + ( (r) * 10))
+
+//GLOBALS
+
+extern int Sq120ToSq64[BRD_SQ_NUM];
+extern int Sq64ToSq120[64];
 
 
-
-
+extern void AllInit ();
 
 
 #endif
