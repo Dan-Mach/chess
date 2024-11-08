@@ -4,16 +4,17 @@
 #include <stdlib.h>
 
 #define DEBUG
+
 #ifndef DEBUG
 #define ASSERT(n)
 #else
 #define ASSERT(n) \
 if (! (n)) { \
-printf{"%s - Failed",#n }; \
-printf("On %s" __DATE__); \
+printf("%s - Failed",#n ); \
+printf(" On %s" __DATE__); \
 printf("At %s" __TIME__); \
-printf(" In File %s", _FILE_); \
-printf("At line %d", __LINE__); \
+printf(" In File %s", __FILE__); \
+printf("At line %d \n", __LINE__); \
 exit(1);}
 #endif
 typedef unsigned long long U64;
@@ -80,6 +81,7 @@ typedef struct {
 //  MACRO
 
 #define FR2SQ(f,r) ( (21 + (f)) + ( (r) * 10))
+#define SQ64(sq120) Sq120ToSq64[sq120]
 
 //GLOBALS
 
@@ -88,6 +90,8 @@ extern int Sq64ToSq120[64];
 
 
 extern void AllInit ();
+
+extern void PrintBitBoard( U64 bb);
 
 
 #endif

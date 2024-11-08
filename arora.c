@@ -4,9 +4,9 @@
 int main () {
 
    
-    /* AllInit ();
+    AllInit ();
 
-     int index = 0;
+     /*int index = 0;
 
      for ( index = 0; index < BRD_SQ_NUM; ++index) {
           if (index%10 == 0) {
@@ -25,6 +25,25 @@ int main () {
           printf ("%5d", Sq64ToSq120[index]);
      }*/
 
-     return 0;
+    //assert
+    /*int num = 2;
+     int nuts = 4;
+     ASSERT( num == nuts);
+     
+     //bitboards
+     U64 playBitBoard = 0ULL;
+
+     printf("Start: \n\n");
+     PrintBitBoard(playBitBoard);
+
+     playBitBoard |= (1ULL << SQ64(D2));
+     printf("D2 Addded: \n\n");
+     PrintBitBoard(playBitBoard);
+
+     playBitBoard |= (1ULL << SQ64(G2));
+     printf("G2 Addded: \n\n");
+     PrintBitBoard(playBitBoard);
+
+     return 0; */
 
 }
