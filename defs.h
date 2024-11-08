@@ -1,6 +1,6 @@
 #ifndef DEFS_H
 #define DEFS_H
-
+#include <stdio.h>
 #include <stdlib.h>
 
 #define DEBUG
@@ -23,7 +23,7 @@ typedef unsigned long long U64;
 #define BRD_SQ_NUM 120
 #define MAXGAMEMOVES 2048
 
-enum { EMPTY, wP, wN, wB, wR, wQ, wK, bP, bN, bB, bR, bQ, bK};
+enum { EMPTY, wP, wN, wB, wR, wQ, wK, bP, bN, bB, bR, bQ, bK, OFFBOARD};
 enum { FILE_A, FILE_B, FILE_C, FILE_D, FILE_E, FILE_F, FILE_G, FILE_H, FILE_NONE };
 enum { RANK_1, RANK_2, RANK_3, RANK_4, RANK_5, RANK_6, RANK_7, RANK_8, RANK_NONE};
 
@@ -82,6 +82,7 @@ typedef struct {
 
 #define FR2SQ(f,r) ( (21 + (f)) + ( (r) * 10))
 #define SQ64(sq120) Sq120ToSq64[sq120]
+#define SQ120(SQ64) `  xccSq64ToSq120[sq64]
 #define POP(b) PopBit(b)
 #define CNT(b) CountBits(b)
 #define CLRBIT(bb,sq) ((bb)  &= ClearMask[(sq)])
@@ -94,6 +95,11 @@ extern U64 ClearMask[64];
 extern int Sq120ToSq64[BRD_SQ_NUM];
 extern int Sq64ToSq120[64];
 
+extern U64 PieceKeys[13][120];
+extern U64 SideKey;
+extern U64 CastleKeys[16];
+
+
 //init.c
 extern void AllInit ();
 
@@ -101,6 +107,9 @@ extern void AllInit ();
 extern void PrintBitBoard( U64 bb);
 extern int PopBit( U64 * bb);
 extern int CountBits(U64 b);
+
+//board.c
+
 #endif
 
 
