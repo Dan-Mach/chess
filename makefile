@@ -1,0 +1,1 @@
+gcc arora.c -o arora

@@ -1,3 +1,8 @@
 #include <stdio.h>
-#include  <defs.h>
+#include  "defs.h"
 
+int main () {
+
+     return 0;
+     
+}
