@@ -1,49 +1,36 @@
 #include <stdio.h>
-#include  "defs.h"
+#include <stdlib.h>
+#include "defs.h"
 
 int main () {
 
-   
-    AllInit ();
-
-     /*int index = 0;
-
-     for ( index = 0; index < BRD_SQ_NUM; ++index) {
-          if (index%10 == 0) {
-               printf("\n");
-          }
-          printf ("%5d", Sq120ToSq64[index]);
-     }
-
-     printf( "\n");
-     printf( "\n");
-
-     for (index = 0; index < 64; ++index ) {
-          if (index%8 == 0 ) {
-               printf ("\n");
-          }
-          printf ("%5d", Sq64ToSq120[index]);
-     }*/
-
-    //assert
-    /*int num = 2;
-     int nuts = 4;
-     ASSERT( num == nuts);
+     AllInit ();
      
-     //bitboards
-     U64 playBitBoard = 0ULL;
+     int PieceOne = rand();
+     int PieceTwo = rand();
+     int PieceThree = rand();
+     int PieceFour = rand();
 
-     printf("Start: \n\n");
-     PrintBitBoard(playBitBoard);
+     printf("Piece one : %x \n ", PieceOne);
+     printf("Piece Two : %x\n", PieceTwo);
+     printf("Piece Three: %x\n", PieceThree);
+     printf("Piece Four: %x\n", PieceFour);
 
-     playBitBoard |= (1ULL << SQ64(D2));
-     printf("D2 Addded: \n\n");
-     PrintBitBoard(playBitBoard);
+     int Key = PieceOne ^ PieceTwo ^  PieceFour;
 
-     playBitBoard |= (1ULL << SQ64(G2));
-     printf("G2 Addded: \n\n");
-     PrintBitBoard(playBitBoard);
+     int TempKey = PieceTwo;
+     TempKey ^= PieceThree;
+     TempKey ^= PieceFour;
+     TempKey ^= PieceOne;
 
-     return 0; */
+     printf("Key: %x\n", Key);
+     printf("TempKey: %x \n", TempKey);
 
+     TempKey ^= PieceThree;
+     printf("(Three out ) TempKey : %x \n", TempKey);
+
+     TempKey ^= PieceThree;
+     printf("(Three in ) TempKey : %x \n", TempKey);
+
+     return 0;
 }
