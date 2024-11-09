@@ -69,7 +69,7 @@ int Parse_Fen( char *fen, S_BOARD *pos) {
     ASSERT(*fen == 'w' || *fen == 'b');
 
     pos->side = (*fen == 'w') ? WHITE : BLACK;
-    fen != 2;
+    fen += 2;
 
     for (i = 0; i < 4; i++) {
         if (*fen == ' ') {
@@ -99,7 +99,7 @@ int Parse_Fen( char *fen, S_BOARD *pos) {
         pos->enPas = FR2SQ(file,rank);
     }
 
-    pos->posKey = GeneratePosKey(pos);
+    //pos->posKey = GeneratePosKey(pos);
 
     return 0;
 }
@@ -137,4 +137,32 @@ void ResetBoard(S_BOARD *pos) {
 
     pos->castlePerm = 0;
     pos->posKey = 0ULL;
+}
+
+void PrintBoard ( const  S_BOARD *pos ) {
+
+    int sq,file,rank,piece;
+
+    printf("\n Game Board: \n\n");
+
+    for (rank = RANK_8; rank >= RANK_1; rank--) {
+        printf("%d", rank);
+
+        for (file = FILE_A; file <= FILE_H; file++) {
+            sq = FR2SQ(file,rank);
+            piece = pos->pieces[sq];
+            printf("%3c", PceChar[piece] );
+        }
+        printf("\n");
+    }
+
+    printf("\n");
+    for (file =FILE_A; file <= FILE_H; file++) {
+        printf("%3c",'a' + file);
+    }
+
+    printf("\n");
+    printf("Side: %c \n", SideChar[pos->side]);
+    printf("enPas: %d\n", pos->enPas);
+
 }
