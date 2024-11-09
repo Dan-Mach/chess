@@ -51,6 +51,7 @@ typedef struct {
     int fiftyMove;
     int posKey;
 }S_UNDO;
+
 typedef struct {
 
     int pieces[BRD_SQ_NUM];

@@ -99,7 +99,7 @@ int Parse_Fen( char *fen, S_BOARD *pos) {
         pos->enPas = FR2SQ(file,rank);
     }
 
-    //pos->posKey = GeneratePosKey(pos);
+    pos->posKey = GeneratePosKey(pos);
 
     return 0;
 }
@@ -145,9 +145,8 @@ void PrintBoard ( const  S_BOARD *pos ) {
 
     printf("\n Game Board: \n\n");
 
-    for (rank = RANK_8; rank >= RANK_1; rank--) {
-        printf("%d", rank);
-
+    for (rank = RANK_8; rank > RANK_1; rank--) {
+        printf("%d ", rank);
         for (file = FILE_A; file <= FILE_H; file++) {
             sq = FR2SQ(file,rank);
             piece = pos->pieces[sq];
