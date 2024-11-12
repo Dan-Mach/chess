@@ -1,6 +1,29 @@
 #include <stdio.h>
 #include "defs.h"
 
+void UpdateListMaterial (S_BOARD *pos) {
+    int piece, sq, index, colour;
+
+    for (index = 0; index < BRD_SQ_NUM; ++index) {
+        sq =  index;
+        piece = pos->pieces[index];
+        if( piece != OFFBOARD && piece != EMPTY) {
+            if (PieceBig[piece] == TRUE) pos->bigPce[colour]++;
+            if (PieceMin[piece] == TRUE) pos->minPce[colour]++;
+            if (PieceMaj[piece] == TRUE) pos->majPce[colour]++;
+
+           pos->material[colour] += PieceVal[piece];
+
+           pos->pList[piece][pos->pceNum[piece]] = sq;
+           pos->pceNum[piece]++;
+
+           if (piece == wK) pos->KingSQ[WHITE] = sq;
+           if (piece == bK) pos->KingSQ[BLACK] = sq;
+
+        }
+    }
+}
+
 int Parse_Fen( char *fen, S_BOARD *pos) {
     ASSERT(fen != NULL );
     ASSERT(pos != NULL);
@@ -146,7 +169,7 @@ void PrintBoard ( const  S_BOARD *pos ) {
     printf("\n Game Board: \n\n");
 
     for (rank = RANK_8; rank >= RANK_1; rank--) {
-        printf("%d  ", rank + 1);
+        printf("%d", rank + 1);
         for (file = FILE_A; file <= FILE_H; file++) {
             sq = FR2SQ(file,rank);
             piece = pos->pieces[sq];
