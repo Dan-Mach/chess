@@ -20,8 +20,18 @@ void UpdateListMaterial (S_BOARD *pos) {
            if (piece == wK) pos->KingSQ[WHITE] = sq;
            if (piece == bK) pos->KingSQ[BLACK] = sq;
 
+            if (piece == wP) {
+                SETBIT(pos->pawns[WHITE],SQ64(sq));
+                SETBIT(pos->pawns[BOTH],SQ64(sq));
+            }
+            else if (piece == bP){
+                SETBIT(pos->pawns[BLACK],SQ64(sq));
+                SETBIT(pos->pawns[BOTH],SQ64(sq));
+            }
         }
     }
+
+
 }
 
 int Parse_Fen( char *fen, S_BOARD *pos) {
@@ -142,6 +152,9 @@ void ResetBoard(S_BOARD *pos) {
         pos->bigPce[index] = 0;
         pos->majPce[index] = 0;
         pos->minPce[index] = 0;
+    }
+
+    for (index = 0; index < 3; ++index) {
         pos->pawns[index] = 0ULL;
     }
 

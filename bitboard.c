@@ -9,7 +9,7 @@ const int BitTable[64] = {
 
 };
 
-int PopBit( U64 * bb) {
+int PopBit( U64 *bb) {
     U64 b = *bb ^ (*bb - 1);
     unsigned int fold = (unsigned) ((b & 0xffffffff) ^ (b >> 32));
     *bb &= (*bb - 1);
