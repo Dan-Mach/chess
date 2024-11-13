@@ -12,15 +12,5 @@ int main () {
 
      S_BOARD board[1];
 
-     Parse_Fen(FEN4, board);
-     PrintBoard(board);
-     
-     printf("\n wP: \n");
-     PrintBitBoard(board->pawns[WHITE]);
-     printf("\n bP: \n");
-     PrintBitBoard(board->pawns[BLACK]);
-     printf("\n P: \n");
-     PrintBitBoard(board->pawns[BOTH]);
-
      return 0;
 }
