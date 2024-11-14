@@ -8,6 +8,8 @@ void UpdateListMaterial (S_BOARD *pos) {
         sq =  index;
         piece = pos->pieces[index];
         if( piece != OFFBOARD && piece != EMPTY) {
+            colour = PieceCol[piece];
+
             if (PieceBig[piece] == TRUE) pos->bigPce[colour]++;
             if (PieceMin[piece] == TRUE) pos->minPce[colour]++;
             if (PieceMaj[piece] == TRUE) pos->majPce[colour]++;
@@ -30,8 +32,6 @@ void UpdateListMaterial (S_BOARD *pos) {
             }
         }
     }
-
-
 }
 
 int Parse_Fen( char *fen, S_BOARD *pos) {
