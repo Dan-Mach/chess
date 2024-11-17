@@ -15,11 +15,11 @@ int main () {
      Parse_Fen(FEN4, board);
      PrintBoard(board);
      printf("\nwP:\n");
-     PrintBitBoard(board->pawns[WHITE]);
+     printBitboard2(board->pawns[WHITE]);
      printf("\nbP:\n");
-     PrintBitBoard(board->pawns[BLACK]);
+     printBitboard2(board->pawns[BLACK]);
      printf("\n all P: \n");
-     PrintBitBoard(board->pawns[BOTH]);
+     printBitboard2(board->pawns[BOTH]);
 
      return 0;
 }

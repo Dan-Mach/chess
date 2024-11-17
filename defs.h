@@ -125,6 +125,7 @@ extern void AllInit ();
 extern void PrintBitBoard( U64 bb);
 extern int PopBit( U64 * bb);
 extern int CountBits(U64 b);
+extern void printBitboard2(U64 bitboard);
 
 //board.c
 extern void ResetBoard(S_BOARD *pos);
