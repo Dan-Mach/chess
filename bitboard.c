@@ -48,19 +48,3 @@ void PrintBitBoard( U64 bb) {
     printf("\n\n");
 }
 
-void printBitboard2(U64 bitboard) {
-    for (int i = 0; i < 64; i++) {
-        // Check if the bit at the ith position is set
-        if (bitboard & (1ULL << (63 - i))) {
-            printf("1"); // Print '1' for pawn present
-        } else {
-            printf("0"); // Print '0' for no pawn
-        }
-
-        // Print a newline after every 8 squares (to form rows on the board)
-        if ((i + 1) % 8 == 0) {
-            printf("\n");
-        }
-    }
-}
-

@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "defs.h"
-
+//error handling 
 void UpdateListMaterial (S_BOARD *pos) {
     int piece, sq, index, colour;
-
+    ASSERT(PieceBig[piece] == TRUE || PieceBig[piece] == FALSE);
     for (index = 0; index < BRD_SQ_NUM; ++index) {
         sq =  index;
         piece = pos->pieces[index];
@@ -135,6 +135,19 @@ int Parse_Fen( char *fen, S_BOARD *pos) {
     pos->posKey = GeneratePosKey(pos);
 
     return 0;
+
+    int sq = 0;
+    int piece = 0;
+
+    while (*fen) {
+        piece = fenCharToPieece(*fen);
+        pos->pieces[sq] = piece;
+
+        printf("Parsed square %d with piece %d \n", sq, piece);
+
+        fen++;
+        sq++;
+    }
 }
 
 void ResetBoard(S_BOARD *pos) {
@@ -187,6 +200,8 @@ void PrintBoard ( const  S_BOARD *pos ) {
             sq = FR2SQ(file,rank);
             piece = pos->pieces[sq];
             printf("%3c", PceChar[piece] );
+
+            printf("%d\n", piece);
         }
         printf("\n");
     }
