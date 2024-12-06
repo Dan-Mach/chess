@@ -137,8 +137,6 @@ int Parse_Fen( char *fen, S_BOARD *pos) {
     return 0;
 
     int sq = 0;
-    int piece = 0;
-
     while (*fen) {
         piece = fenCharToPieece(*fen);
         pos->pieces[sq] = piece;
