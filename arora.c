@@ -12,9 +12,7 @@ int main () {
 
      S_BOARD board[1];
 
-    
-
-     Parse_Fen(FEN3, board);
+     Parse_Fen(FEN4, board);
      PrintBoard(board);
      printf("\nwP:\n");
      PrintBitBoard(board->pawns[WHITE]);
