@@ -94,7 +94,7 @@ typedef struct {
 typedef struct {
     int pieces[BRD_SQ_NUM];
 
-    U64 pawns[3];
+    unsigned long long pawns[3];
     int KingSQ[2];
 
     int side;
