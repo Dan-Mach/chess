@@ -6,8 +6,6 @@ void UpdateListMaterial (S_BOARD *pos) {
     
     // ASSERT statement moved inside the loop
     
-    printf("Setting bit for pawn at %d\n", SQ64(sq));
-
     for (index = 0; index < BRD_SQ_NUM; ++index) {
         sq =  index;
         piece = pos->pieces[index];
@@ -140,6 +138,7 @@ int Parse_Fen( char *fen, S_BOARD *pos) {
         pos->enPas = NO_SQ;
     }
 
+    UpdateListMaterial(pos);
     pos->posKey = GeneratePosKey(pos);
 
     return 0;
@@ -157,10 +156,11 @@ void ResetBoard(S_BOARD *pos) {
         pos->pieces[SQ120(index)] = EMPTY;
     }
 
-    for (index = 0; index < 3; ++index) {
+    for (index = 0; index < BOTH; ++index) {
         pos->bigPce[index] = 0;
         pos->majPce[index] = 0;
         pos->minPce[index] = 0;
+        pos->material[index] = 0;
     }
 
     for (index = 0; index < 3; ++index) {

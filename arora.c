@@ -12,10 +12,10 @@ int main () {
 
      S_BOARD board[1];
 
-     //if (!Parse_Fen(FEN4, board)) {
-        // fprintf(stderr, "Error parsing FEN\n");
-        // return 1;
-     //}
+     if (Parse_Fen(FEN4, board) != 0) {
+        fprintf(stderr, "Error parsing FEN\n");
+        return 1;
+     }
      PrintBoard(board);
      printf("\nwP:\n");
      PrintBitBoard(board->pawns[WHITE]);
