@@ -156,7 +156,7 @@ void ResetBoard(S_BOARD *pos) {
         pos->pieces[SQ120(index)] = EMPTY;
     }
 
-    for (index = 0; index < 2; ++index) {
+    for (index = 0; index < BOTH; ++index) {
         pos->bigPce[index] = 0;
         pos->majPce[index] = 0;
         pos->minPce[index] = 0;
