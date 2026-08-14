@@ -191,13 +191,7 @@ extern void AllInit();
 extern void PrintBitBoard(U64 bb);
 extern int PopBit(U64 *bb);
 extern int CountBits(U64 b);
-//board.c
-extern void PrintBoard(const S_BOARD *pos);
-extern void ResetBoard(S_BOARD *pos);
-extern int Parse_Fen(char *fen, S_BOARD *pos);
-extern void UpdateListMaterial(S_BOARD *pos);
-extern int CheckBoard(const S_BOARD *pos);
-extern int PceListOk(const S_BOARD *pos);
+
 
 //harshKeys.c
 extern U64 GeneratePosKey(const S_BOARD *pos);

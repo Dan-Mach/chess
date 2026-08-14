@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "defs.h"
+#include "board.h"
 
 void UpdateListMaterial (S_BOARD *pos) {
     int piece, sq, index, colour;
