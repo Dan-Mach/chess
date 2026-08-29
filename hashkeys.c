@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "defs.h"
+#include "board/board.h"
 
 #define RAND_64 ((U64)rand() | \
                  (U64)rand() << 15 | \

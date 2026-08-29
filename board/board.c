@@ -217,5 +217,5 @@ void PrintBoard ( const S_BOARD *pos ) {
             pos->castlePerm & BQCA ? 'q':  '-'
             );
 
-    printf("PosKey: %11x\n", pos->posKey);
+    printf("PosKey: %11X\n", pos->posKey);
 }

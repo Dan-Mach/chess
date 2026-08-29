@@ -2,21 +2,11 @@
 #include <stdlib.h>
 #include "defs.h"
 
-#define RAND_64 (   (U64) rand() | \
-                    (U64) rand() << 15 | \
-                    (U64) rand() << 30 | \
-                    (U64) rand() << 45 | \
-                    ((U64) rand() & 0xf) << 60 )
-
 int Sq120ToSq64[BRD_SQ_NUM];
 int Sq64ToSq120[64];
 
 U64 SetMask[64];
 U64 ClearMask[64];
-
-U64 PieceKeys[13][120];
-U64 SideKey;
-U64 CastleKeys[16];
 
 int FilesBrd[BRD_SQ_NUM];
 int RanksBrd[BRD_SQ_NUM];
@@ -102,4 +92,5 @@ void AllInit () {
     InitSq120To64 ();
     InitBitMask ();
     InitFileRankBrd();
+    
 }
