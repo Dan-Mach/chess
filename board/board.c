@@ -10,6 +10,7 @@ void UpdateListMaterial (S_BOARD *pos) {
         sq =  index;
         piece = pos->pieces[index];
         ASSERT(PieceBig[piece] == TRUE || PieceBig[piece] == FALSE);
+        
         if( piece != OFFBOARD && piece != EMPTY) {
             colour = PieceCol[piece];
 
@@ -185,7 +186,6 @@ void ResetBoard(S_BOARD *pos) {
 }
 
 void PrintBoard ( const S_BOARD *pos ) {
-
     int file, rank, piece;
 
     printf("\n Game Board: \n\n");
@@ -201,12 +201,12 @@ void PrintBoard ( const S_BOARD *pos ) {
     }
 
     printf("\n");
+
     for (file =FILE_A; file <= FILE_H; file++) {
         printf("%3c",'a' + file);
     }
 
     printf("\n");
-
     printf("Side: %c \n", SideChar[pos->side]);
     printf("enPas: %d\n", pos->enPas);
 
