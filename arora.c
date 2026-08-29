@@ -9,21 +9,5 @@
 #define FEN4 "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1"
 int main () {
 
-     AllInit ();
-
-     S_BOARD board[1];
-
-     if (Parse_Fen(FEN1, board) != 0) {
-        fprintf(stderr, "Error parsing FEN\n");
-        return 1;
-     }
-     PrintBoard(board);
-     printf("\nwP:\n");
-     PrintBitBoard(board->pawns[WHITE]);
-     printf("\nbP:\n");
-     PrintBitBoard(board->pawns[BLACK]);
-     printf("\n all P: \n");
-     PrintBitBoard(board->pawns[BOTH]);
-
-     return 0;
+   return 0;
 }
