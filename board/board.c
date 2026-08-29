@@ -38,7 +38,7 @@ void UpdateListMaterial (S_BOARD *pos) {
     }
 }
 
-int Parse_Fen( char *fen, S_BOARD *pos) {
+int ParseFen( char *fen, S_BOARD *pos) {
     ASSERT(fen != NULL );
     ASSERT(pos != NULL);
 
