@@ -1,12 +1,11 @@
 #include <stdio.h>
-#include "defs.h"
+#include "../defs.h"
 #include "board.h"
 
 void UpdateListMaterial (S_BOARD *pos) {
     int piece, sq, index, colour;
     
     // ASSERT statement moved inside the loop
-    
     for (index = 0; index < BRD_SQ_NUM; ++index) {
         sq =  index;
         piece = pos->pieces[index];
@@ -31,7 +30,7 @@ void UpdateListMaterial (S_BOARD *pos) {
                 SETBIT(pos->pawns[WHITE],SQ64(sq));
                 SETBIT(pos->pawns[BOTH],SQ64(sq));
             }
-            else if (piece == bP){
+            else if (piece == bP) {
                 SETBIT(pos->pawns[BLACK],SQ64(sq));
                 SETBIT(pos->pawns[BOTH],SQ64(sq));
             }        
@@ -219,6 +218,4 @@ void PrintBoard ( const S_BOARD *pos ) {
             );
 
     printf("PosKey: %11x\n", pos->posKey);
-
-
 }

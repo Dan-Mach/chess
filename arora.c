@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "defs.h"
-#include "board.h"
+#include "board/board.h"
 
 #define FEN1 "rnbqkbnr/pppppppp/8/8/4p3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1 "
 #define FEN2 "rnbqkbnr/pp1ppppp/8/2p5/4p3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2 "
