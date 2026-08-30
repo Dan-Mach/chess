@@ -1,6 +1,7 @@
 // attack.c
 #include "stdio.h"
 #include "defs.h"
+#include "board/board.h"
 
 const int KnDir[8] = { -8, -19,	-21, -12, 8, 19, 21, 12 };
 const int RkDir[4] = { -1, -10,	1, 10 };
@@ -34,7 +35,6 @@ int SqAttacked(const int sq, const int side, const S_BOARD *pos) {
 			return TRUE;
 		}
 	}
-	
 	// rooks, queens
 	for(index = 0; index < 4; ++index) {		
 		dir = RkDir[index];
@@ -54,7 +54,6 @@ int SqAttacked(const int sq, const int side, const S_BOARD *pos) {
 			pce = pos->pieces[t_sq];
 		}
 	}
-	
 	// bishops, queens
 	for(index = 0; index < 4; ++index) {		
 		dir = BiDir[index];
@@ -74,7 +73,6 @@ int SqAttacked(const int sq, const int side, const S_BOARD *pos) {
 			pce = pos->pieces[t_sq];
 		}
 	}
-	
 	// kings
 	for(index = 0; index < 8; ++index) {		
 		pce = pos->pieces[sq + KiDir[index]];
